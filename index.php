@@ -24,7 +24,7 @@
 		
 		<div>
 		<?php 
-		if ($_GET[rb]){
+		if ($_GET[rb] != ""){
 			$rb = $_GET[rb];
 		}
 		else {
@@ -49,7 +49,7 @@
 
 		<div>
 			<?php 
-			if ($_GET[xb]){
+			if ($_GET[xb] != ""){
 				$xb = $_GET[xb];
 			}
 			else {
@@ -68,7 +68,7 @@
 		<div>
 			<?php
 			$starttime = microtime(true);
-			if (( $_GET['x']) && ( $_GET['y']) && ($_GET['r'])){
+			if (( $_GET['x'] != "") && ( $_GET['y'] != "") && ($_GET['r'] != "")){
 				$X = (int) $_GET['x'];
 				$Y = (int) $_GET['y'];
 				$R = (int) $_GET['r'];
