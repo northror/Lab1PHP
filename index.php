@@ -10,21 +10,68 @@
 	</div>
 	<form method="get" action="index.php">
 		<div>
-			R = <input type="number" step="0.01" min="0" name="R">
+			<p>R</p>
 		</div>
+
 		<div>
-			X = <input type="number" step="0.01" name="X">
+			<?php 
+			for ($i = 1; $i <= 3; $i += 0.5 )
+			{
+				echo "<button name='rb'  value='$i'>$i</button>";
+			}
+			?>
 		</div>
+		
 		<div>
-			Y = <input type="number" step="0.01" name="Y">
+		<?php 
+		if ($_GET[rb]){
+			$rb = $_GET[rb];
+		}
+		else {
+			$rb = $_GET[r];
+		}
+		echo "<input name='r' readonly='readonly' value='$rb'>"
+		?>
 		</div>
+
+		<div>
+			<p>X</p>
+		</div>
+
+		<div>
+			<?php 
+			for ($i = -3; $i <= 5; ++$i)
+			{
+				echo "<button name='xb' value='$i'>$i</button>";
+			}
+			?>
+		</div>
+
+		<div>
+			<?php 
+			if ($_GET[xb]){
+				$xb = $_GET[xb];
+			}
+			else {
+				$xb = $_GET[x];
+			}
+			echo "<input type='text' readonly='readonly' name='x' value='$xb'>"
+			?>
+		</div>
+
+		<div>Y</div>
+		
+		<div>
+			<input type="number" step="0.01" min="-5" max="5" name="y">
+		</div>
+		
 		<div>
 			<?php
 			$starttime = microtime(true);
-			if (( $_GET['X'] != '') && ( $_GET['Y'] != '')){
-				$X = (int) $_GET['X'];
-				$Y = (int) $_GET['Y'];
-				$R = (int) $_GET['R'];
+			if (( $_GET['x']) && ( $_GET['y']) && ($_GET['r'])){
+				$X = (int) $_GET['x'];
+				$Y = (int) $_GET['y'];
+				$R = (int) $_GET['r'];
 				if ((( $X <= 0) && ( $X >  -$R) && (  $Y >= 0 ) && ( $Y <=  $R)) ||
 				(( $X >= 0) && ( $Y >= 0 ) && ( 2 * ($X + $Y) <=  $R )) ||
 				(( $X >= 0) && ( $Y <= 0) && (  $X *  $X +  $Y *  $Y <=  $R *  $R ))){
@@ -34,21 +81,24 @@
 							$INTARGET = "нет";
 						}
 						printf("
-							<TABLE BORDER>
-								<TR>
-									<TD>X</TD> <TD>Y</TD> <TD>R</TD> <TD>Попадание</TD>
-								</TR>
-								<TR>
-									<TD>%s</TD> <TD>%s</TD> <TD>%s</TD> <TD> %s </TD>
-								</TR>
-							</TABLE>
-						", $X, $Y, $R, $INTARGET);
+					<TABLE BORDER>
+					<TR>
+					<TD>X</TD> <TD>Y</TD> <TD>R</TD> <TD>Попадание</TD>
+					</TR>
+					<TR>
+					<TD>%s</TD> <TD>%s</TD> <TD>%s</TD> <TD> %s </TD>
+					</TR>
+					</TABLE>
+					", $X, $Y, $R, $INTARGET);
 						printf("<p>Время выполнения скрипта = %f c</p>", microtime(true) - $starttime);
 						printf("<p>%s</p>", date("G:i:s, M, Y"));
 			}
 			?>
 		</div>
-		<button>OK</button>
+		
+		<div>
+			<button>OK</button>
+		</div>
 	</form>
 </body>
 </html>
