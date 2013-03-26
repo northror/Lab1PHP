@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<title>Р§РёСЃС‚СЏРєРѕРІ Р’Р»Р°РґРёСЃР»Р°РІ, Р—Р°Р№С†РµРІР° Р›РёРґРёСЏ, РіСЂ 2105</title>
+<title>Чистяков Владислав, Зайцева Лидия, гр. 2105</title>
+<link rel="stylesheet" href="form.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
