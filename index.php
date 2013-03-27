@@ -6,15 +6,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
-	<div>
+	<div class="header">
 		<p>Чистяков Владислав, Зайцева Лидия, группа 2105, Вариант 1100</p>
 	</div>
 	<form method="get" action="index.php">
-		<div>
+		<div class="left_col">
 			<p>R</p>
 		</div>
 
-		<div>
+		<div class="right_col">
 			<?php 
 			for ($i = 1; $i <= 3; $i += 0.5 )
 			{
@@ -23,7 +23,7 @@
 			?>
 		</div>
 		
-		<div>
+		<div class="right_col">
 		<?php 
 		if ($_GET[rb] != ""){
 			$rb = $_GET[rb];
@@ -35,11 +35,11 @@
 		?>
 		</div>
 
-		<div>
+		<div class="left_col">
 			<p>X</p>
 		</div>
 
-		<div>
+		<div class="right_col">
 			<?php 
 			for ($i = -3; $i <= 5; ++$i)
 			{
@@ -48,7 +48,7 @@
 			?>
 		</div>
 
-		<div>
+		<div class="right_col">
 			<?php 
 			if ($_GET[xb] != ""){
 				$xb = $_GET[xb];
@@ -60,9 +60,9 @@
 			?>
 		</div>
 
-		<div>Y</div>
+		<div class="left_col">Y</div>
 		
-		<div>
+		<div class="right_col">
 			<input type="number" step="0.01" min="-5" max="5" name="y">
 		</div>
 		
@@ -97,7 +97,7 @@
 			?>
 		</div>
 		
-		<div>
+		<div class="right_col">
 			<button>OK</button>
 		</div>
 	</form>
