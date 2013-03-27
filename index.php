@@ -1,72 +1,74 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<title>Чистяков Владислав, Зайцева Лидия, гр. 2105</title>
+<title>Лабораторная №1</title>
 <link rel="stylesheet" href="form.css">
+<link rel="stylesheet" href="form1.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
 	<div class="header">
-		<p>Р§РёСЃС‚СЏРєРѕРІ Р’Р»Р°РґРёСЃР»Р°РІ, Р—Р°Р№С†РµРІР° Р›РёРґРёСЏ, РіСЂСѓРїРїР° 2105, Р’Р°СЂРёР°РЅС‚ 1100</p>
+		<h1>Лабораторная работа №1</h1>
+		<p>Чистяков Владислав, Зайцева Лидия, гр. 2105, вариант 1100</p>
 	</div>
 	<form method="get" action="index.php">
+		
 		<div class="left_col">
 			<p>R</p>
-		</div>
-
-		<div class="right_col">
-			<?php 
-			for ($i = 1; $i <= 3; $i += 0.5 )
-			{
-				echo "<button name='rb'  value='$i'>$i</button>";
-			}
-			?>
-		</div>
-		
-		<div class="right_col">
-		<?php 
-		if ($_GET[rb] != ""){
-			$rb = $_GET[rb];
-		}
-		else {
-			$rb = $_GET[r];
-		}
-		echo "<input name='r' readonly='readonly' value='$rb'>"
-		?>
-		</div>
-
-		<div class="left_col">
 			<p>X</p>
+			<p>Y</p>
 		</div>
 
 		<div class="right_col">
-			<?php 
-			for ($i = -3; $i <= 5; ++$i)
-			{
-				echo "<button name='xb' value='$i'>$i</button>";
-			}
-			?>
-		</div>
+			<p>
+				<?php 
+				for ($i = 1; $i <= 3; $i += 0.5 )
+				{
+					echo "<button name='rb'  value='$i'>$i</button>";
+				}
+				?>
 
-		<div class="right_col">
-			<?php 
-			if ($_GET[xb] != ""){
-				$xb = $_GET[xb];
-			}
-			else {
-				$xb = $_GET[x];
-			}
-			echo "<input type='text' readonly='readonly' name='x' value='$xb'>"
-			?>
-		</div>
+				<?php 
+				if ($_GET[rb] != ""){
+					$rb = $_GET[rb];
+				}
+				else {
+					$rb = $_GET[r];
+				}
+				echo "<input name='r' readonly='readonly' value='$rb'>"
+				?>
+			</p>
+			<p>
+				<?php 
+				for ($i = -3; $i <= 5; ++$i)
+				{
+					echo "<button name='xb' value='$i'>$i</button>";
+				}
+				?>
 
-		<div class="left_col">Y</div>
+				<?php 
+				if ($_GET[xb] != ""){
+					$xb = $_GET[xb];
+				}
+				else {
+					$xb = $_GET[x];
+				}
+				echo "<input type='text' readonly='readonly' name='x' value='$xb'>"
+				?>
+			</p>
+			<p>
+				<input type="number" step="0.01" min="-5" max="5" name="y">
+			</p>
+			<p>
+			<button>OK</button>
+			</p>
+		</div>
 		
-		<div class="right_col">
-			<input type="number" step="0.01" min="-5" max="5" name="y">
+		<div id="scheme">
+			<img src="scheme.png">
 		</div>
 		
-		<div>
+		<div class="bottom">
 			<?php
 			$starttime = microtime(true);
 			if (( $_GET['x'] != "") && ( $_GET['y'] != "") && ($_GET['r'] != "")){
@@ -76,29 +78,25 @@
 				if ((( $X <= 0) && ( $X >  -$R) && (  $Y >= 0 ) && ( $Y <=  $R)) ||
 				(( $X >= 0) && ( $Y >= 0 ) && ( 2 * ($X + $Y) <=  $R )) ||
 				(( $X >= 0) && ( $Y <= 0) && (  $X *  $X +  $Y *  $Y <=  $R *  $R ))){
-					$INTARGET = "РґР°";
+					$INTARGET = "Да";
 				}
 				else {
-							$INTARGET = "РЅРµС‚";
+							$INTARGET = "Нет";
 						}
 						printf("
-					<TABLE BORDER>
+					<TABLE>
 					<TR>
-					<TD>X</TD> <TD>Y</TD> <TD>R</TD> <TD>РџРѕРїР°РґР°РЅРёРµ</TD>
+					<TD>X</TD> <TD>Y</TD> <TD>R</TD> <TD>Попадание</TD>
 					</TR>
 					<TR>
 					<TD>%s</TD> <TD>%s</TD> <TD>%s</TD> <TD> %s </TD>
 					</TR>
 					</TABLE>
 					", $X, $Y, $R, $INTARGET);
-						printf("<p>Р’СЂРµРјСЏ РІС‹РїРѕР»РЅРµРЅРёСЏ СЃРєСЂРёРїС‚Р° = %f c</p>", microtime(true) - $starttime);
+						printf("<p>Время выполнения скрипта = %f c</p>", microtime(true) - $starttime);
 						printf("<p>%s</p>", date("G:i:s, M, Y"));
 			}
 			?>
-		</div>
-		
-		<div class="right_col">
-			<button>OK</button>
 		</div>
 	</form>
 </body>

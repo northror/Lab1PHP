@@ -1,53 +1,66 @@
 @CHARSET "UTF-8";
 body {
-  	padding-left: 11em;
-  	font-family: Georgia, "Times New Roman", Times, serif;
-  	color: white;
+	position: relative;
+	color: black;
  	background-color: black;
+	margin: 2em;
+  	font-family: Georgia, "Times New Roman", Times, serif;
 }
 p {
-	text-align: justify;
+	text-align: left;
 }
 h1 {
-	color: #ff1211;
-  	font-family: Helvetica, Geneva, Arial, SunSans-Regular, sans-serif
-}
-td {
-	text-align: center;
-}
-a {
-	text-decoration: none;
-}
-a:link {
-  	color: red
-}
-a:visited {
-  	color: pink
-}
-a:hover {
-	color: #ff3500;
-	font-style: bold;
+	text-align: left;
+	color: black;
+	font-family: "Book Antiqua";
 }
 div.header {
+	color: white;
 	background-color:#FF7d09;
-	min-width:600px;
-	max-width:4000px;
-	height:100px
+	margin-bottom: 2%;
+	padding: 1%;
 }
 div.left_col {
-	color: black;
-	background-color:#dddddd;
-	border-right:2px dashed #717dc9;
-	width:198px;
-	height:400px;
-	float:left
+	background-color: #dddddd;
+	width: 10%;
+	height: 250px;
+	padding: 1%;
+	float: left;
 }
 div.right_col {
-	color: black;
-	background-color:#dddddd;
-	height:400px;
-	min-width:380px;
-	max-width:3800px;
-	margin-left:200px;
-	padding-left:20px
+	background-color: #dddddd;
+	width: 50%;
+	height: 250px;
+	margin-left: 2%;
+	padding: 1%;
+	float: left;
+}
+div.bottom {
+	background-color: #FF7d09;
+	width: 98%;
+	height: 20%;
+	margin-top: 2%;
+	margin-bottom: 2%;
+	padding: 1%;
+	float: left;
+}
+#scheme {
+	text-align: center;
+	background-color: #aaaaaa;
+	width: 30%;
+	height: 250px;
+	margin-left: 2%;
+	padding: 1%;
+	float: left;
+}
+table {
+	text-align: center;
+	width: 50%;
+	background-color: white;
+	border-collapse: collapse;
+	border: 1px dashed black;
+}
+td { 
+    padding: 5px;
+    border: 1px dashed black;
 }
